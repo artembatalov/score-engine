@@ -1,18 +1,36 @@
 # score-engine
 
-A C++20 audio renderer that turns a plain-text score into a 44.1 kHz, 16-bit mono WAV. Define instruments, arrange notes into reusable patterns, and render the result from the command line.
+**Write a score in plain text. Render it to audio from the command line.**
 
-## Demo
+score-engine is a C++20 audio renderer with a small language for instruments, notes, and reusable patterns. It mixes samples and synthesized voices into a 44.1 kHz, 16-bit mono WAV.
 
-[Listen to Blue Hour (MP3)](examples/blue-hour.mp3?raw=true) · [Read the score](examples/blue-hour.txt)
+[Listen](#listen) · [Build and render](#build-and-render) · [Score format](#score-format)
 
-A 19-second piece with a sine bass, tremolo chords, and a triangle lead with echo. The engine renders the WAV from the linked score. The MP3 is a compressed copy for listening.
+## Listen
+
+[![Sweden by C418 — waveform of the score-engine render](docs/sweden-waveform.svg)](docs/audio/sweden.mp3?raw=true)
+
+**[Listen to Sweden ↗](docs/audio/sweden.mp3?raw=true)** · [View the score](examples/sweden.txt) · [Original WAV render](compositions/sweden.wav?raw=true)
+
+The Sweden arrangement combines piano and strings at 88 BPM. The waveform above comes from the rendered audio.
+
+| Track | Time | Listen | Score | WAV render |
+| :--- | ---: | :--- | :--- | :--- |
+| **Sweden** · C418 | 3:33 | [MP3](docs/audio/sweden.mp3?raw=true) | [TXT](examples/sweden.txt) | [WAV](compositions/sweden.wav?raw=true) |
+| Bad Apple!! · ZUN | 3:35 | [MP3](docs/audio/badapple.mp3?raw=true) | [TXT](examples/badapple.txt) | [WAV](compositions/badapple.wav?raw=true) |
+| Bad Hand · Thelonious Dogg | 0:25 | [MP3](docs/audio/badhand.mp3?raw=true) | [TXT](examples/badhand.txt) | [WAV](compositions/badhand.wav?raw=true) |
+| Tokyo Ghoul opening | 3:49 | [MP3](docs/audio/ghoul.mp3?raw=true) | [TXT](examples/ghoul.txt) | [WAV](compositions/ghoul.wav?raw=true) |
+| The Lick | 0:02 | [MP3](docs/audio/lick.mp3?raw=true) | [TXT](examples/lick.txt) | [WAV](compositions/lick.wav?raw=true) |
+| Memory · Toby Fox | 0:31 | [MP3](docs/audio/memory.mp3?raw=true) | [TXT](examples/memory.txt) | [WAV](compositions/memory.wav?raw=true) |
+| Once Upon a Time · Toby Fox | 1:13 | [MP3](docs/audio/once.mp3?raw=true) | [TXT](examples/once.txt) | [WAV](compositions/once.wav?raw=true) |
+| Virtual Insanity · Jamiroquai | 4:00 | [MP3](docs/audio/virtual.mp3?raw=true) | [TXT](examples/virtual.txt) | [WAV](compositions/virtual.wav?raw=true) |
+| Blue Hour · synth demo | 0:19 | [MP3](examples/blue-hour.mp3?raw=true) | [TXT](examples/blue-hour.txt) | [Render locally](#build-and-render) |
+
+The MP3s for the sample-based arrangements were encoded from the WAV renders in `compositions/`. To render those scores again, place their referenced WAV samples under `samples/` at the repository root.
 
 ## Build and render
 
-Use CMake 3.24+ and a C++20 compiler. CMake downloads GoogleTest if it cannot find a local installation.
-
-From the repository root:
+Requires CMake 3.24+ and a C++20 compiler. CMake downloads GoogleTest during configuration if it cannot find a local installation.
 
 ```sh
 cmake -S . -B build
@@ -20,9 +38,9 @@ cmake --build build --target score-engine
 ./build/bin/score-engine examples/blue-hour.txt blue-hour.wav
 ```
 
-## Score format
+Blue Hour uses built-in oscillators, so it runs without external samples.
 
-A score sets the tempo in BPM and starts playback from the `main` pattern. In the example below, `resolution 4` gives four ticks per beat. Each note lists its start tick, instrument, pitch, duration in ticks, and velocity as a percentage. The `@` prefix plays a named pattern at the given tick.
+## Score format
 
 ```text
 bpm 112
@@ -44,4 +62,10 @@ pattern main resolution 4
 end
 ```
 
-The renderer supports WAV samples and sine, square, and triangle oscillators. Instruments have attack and release envelopes in samples and can use gain, echo, and tremolo effects.
+- **Instruments** can play WAV samples or synthesize sine, square, and triangle waves. Attack and release are measured in samples. Effects include gain, echo, and tremolo.
+- **Notes** list the start tick, instrument, pitch, duration in ticks, and velocity as a percentage. With `resolution 4`, one beat contains four ticks.
+- **Patterns** group notes and can be called with `@name`. Rendering starts from the `main` pattern.
+
+## License
+
+Engine source code is available under the [MIT License](LICENSE).
