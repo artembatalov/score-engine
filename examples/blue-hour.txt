@@ -1,0 +1,132 @@
+# Blue Hour | 112 BPM | 4 ticks per beat
+bpm 112
+
+instrument lead triangle
+  attack=360 release=1900
+  effect echo delay=0.402 decay=0.26
+end
+
+instrument bass sine
+  attack=320 release=2200
+end
+
+instrument pad sine
+  attack=4400 release=5300
+  effect tremolo freq=3.5 depth=0.17
+end
+
+pattern bar1 resolution 4
+   0 bass A2  7 29
+   0 lead E5  3 29
+   0 pad  A3 16 8
+   0 pad  C4 16 8
+   0 pad  E4 16 8
+   4 lead A5  2 21
+   7 lead C6  3 26
+   8 bass A2  7 23
+  11 lead B5  2 21
+  14 lead G5  2 19
+end
+
+pattern bar2 resolution 4
+   0 bass F2  7 29
+   0 lead A5  3 29
+   0 pad  A3 16 8
+   0 pad  C4 16 8
+   0 pad  F4 16 8
+   4 lead G5  2 21
+   7 lead E5  3 26
+   8 bass F2  7 23
+  11 lead F5  2 21
+  14 lead C5  2 19
+end
+
+pattern bar3 resolution 4
+   0 bass C3  7 29
+   0 lead E5  3 29
+   0 pad  C4 16 8
+   0 pad  E4 16 8
+   0 pad  G3 16 8
+   4 lead G5  2 21
+   7 lead C6  3 26
+   8 bass C3  7 23
+  11 lead D6  2 21
+  14 lead E6  2 19
+end
+
+pattern bar4 resolution 4
+   0 bass G2  7 29
+   0 lead D6  3 29
+   0 pad  B3 16 8
+   0 pad  D4 16 8
+   0 pad  G3 16 8
+   4 lead B5  2 21
+   7 lead G5  3 26
+   8 bass G2  7 23
+  11 lead A5  2 21
+  14 lead B5  2 19
+end
+
+pattern bar5 resolution 4
+   0 bass A2  7 29
+   0 lead E5  3 29
+   0 pad  A3 16 8
+   0 pad  C4 16 8
+   0 pad  E4 16 8
+   4 lead A5  2 21
+   7 lead C6  3 26
+   8 bass A2  7 23
+  11 lead E6  2 21
+  14 lead D6  2 19
+end
+
+pattern bar6 resolution 4
+   0 bass F2  7 29
+   0 lead C6  3 29
+   0 pad  A3 16 8
+   0 pad  C4 16 8
+   0 pad  F4 16 8
+   4 lead A5  2 21
+   7 lead G5  3 26
+   8 bass F2  7 23
+  11 lead F5  2 21
+  14 lead A5  2 19
+end
+
+pattern bar7 resolution 4
+   0 bass C3  7 29
+   0 lead G5  3 29
+   0 pad  C4 16 8
+   0 pad  E4 16 8
+   0 pad  G3 16 8
+   4 lead E5  2 21
+   7 lead D5  3 26
+   8 bass C3  7 23
+  11 lead E5  2 21
+  14 lead G5  2 19
+end
+
+pattern bar8 resolution 4
+   0 bass A2  7 29
+   0 lead C6  2 27
+   0 pad  A3 16 8
+   0 pad  C4 16 8
+   0 pad  E4 16 8
+   3 lead B5  2 20
+   6 lead A5  3 24
+   8 bass A2  7 23
+  10 lead E5  2 18
+  13 lead A5  9 28
+  16 pad  A3 13 0
+end
+
+pattern main resolution 4
+    0 @bar1
+   16 @bar2
+   32 @bar3
+   48 @bar4
+   64 @bar5
+   80 @bar6
+   96 @bar7
+  112 @bar8
+end
