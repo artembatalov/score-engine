@@ -8,23 +8,26 @@ score-engine is a C++20 audio renderer with a small language for instruments, no
 
 ## Listen
 
-[![Sweden by C418 — waveform of the score-engine render](docs/sweden-waveform.svg)](docs/audio/sweden.mp3?raw=true)
+[![Neon Signal waveform](docs/neon-signal-waveform.svg)](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/neon-signal.mp3)
 
-**[Listen to Sweden ↗](docs/audio/sweden.mp3?raw=true)** · [View the score](examples/sweden.txt) · [Original WAV render](compositions/sweden.wav?raw=true)
+**[Play Neon Signal](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/neon-signal.mp3)** · [View the score](examples/neon-signal.txt)
 
-The Sweden arrangement combines piano and strings at 88 BPM. The waveform above comes from the rendered audio.
+An original 26-second electropop demo at 124 BPM. Offbeat bass and pulsing chords build into a layered synth hook. The score uses only built-in oscillators and effects.
+
+### Audio gallery
 
 | Track | Time | Listen | Score | WAV render |
 | :--- | ---: | :--- | :--- | :--- |
-| **Sweden** · C418 | 3:33 | [MP3](docs/audio/sweden.mp3?raw=true) | [TXT](examples/sweden.txt) | [WAV](compositions/sweden.wav?raw=true) |
-| Bad Apple!! · ZUN | 3:35 | [MP3](docs/audio/badapple.mp3?raw=true) | [TXT](examples/badapple.txt) | [WAV](compositions/badapple.wav?raw=true) |
-| Bad Hand · Thelonious Dogg | 0:25 | [MP3](docs/audio/badhand.mp3?raw=true) | [TXT](examples/badhand.txt) | [WAV](compositions/badhand.wav?raw=true) |
-| Tokyo Ghoul opening | 3:49 | [MP3](docs/audio/ghoul.mp3?raw=true) | [TXT](examples/ghoul.txt) | [WAV](compositions/ghoul.wav?raw=true) |
-| The Lick | 0:02 | [MP3](docs/audio/lick.mp3?raw=true) | [TXT](examples/lick.txt) | [WAV](compositions/lick.wav?raw=true) |
-| Memory · Toby Fox | 0:31 | [MP3](docs/audio/memory.mp3?raw=true) | [TXT](examples/memory.txt) | [WAV](compositions/memory.wav?raw=true) |
-| Once Upon a Time · Toby Fox | 1:13 | [MP3](docs/audio/once.mp3?raw=true) | [TXT](examples/once.txt) | [WAV](compositions/once.wav?raw=true) |
-| Virtual Insanity · Jamiroquai | 4:00 | [MP3](docs/audio/virtual.mp3?raw=true) | [TXT](examples/virtual.txt) | [WAV](compositions/virtual.wav?raw=true) |
-| Blue Hour · synth demo | 0:19 | [MP3](examples/blue-hour.mp3?raw=true) | [TXT](examples/blue-hour.txt) | [Render locally](#build-and-render) |
+| **Neon Signal** · original electropop | 0:26 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/neon-signal.mp3) | [TXT](examples/neon-signal.txt) | [Render locally](#build-and-render) |
+| Sweden · C418 | 3:33 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/sweden.mp3) | [TXT](examples/sweden.txt) | [WAV](https://raw.githubusercontent.com/artembatalov/score-engine/main/compositions/sweden.wav) |
+| Bad Apple!! · ZUN | 3:35 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/badapple.mp3) | [TXT](examples/badapple.txt) | [WAV](https://raw.githubusercontent.com/artembatalov/score-engine/main/compositions/badapple.wav) |
+| Bad Hand · Thelonious Dogg | 0:25 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/badhand.mp3) | [TXT](examples/badhand.txt) | [WAV](https://raw.githubusercontent.com/artembatalov/score-engine/main/compositions/badhand.wav) |
+| Tokyo Ghoul opening | 3:49 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/ghoul.mp3) | [TXT](examples/ghoul.txt) | [WAV](https://raw.githubusercontent.com/artembatalov/score-engine/main/compositions/ghoul.wav) |
+| The Lick | 0:02 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/lick.mp3) | [TXT](examples/lick.txt) | [WAV](https://raw.githubusercontent.com/artembatalov/score-engine/main/compositions/lick.wav) |
+| Memory · Toby Fox | 0:31 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/memory.mp3) | [TXT](examples/memory.txt) | [WAV](https://raw.githubusercontent.com/artembatalov/score-engine/main/compositions/memory.wav) |
+| Once Upon a Time · Toby Fox | 1:13 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/once.mp3) | [TXT](examples/once.txt) | [WAV](https://raw.githubusercontent.com/artembatalov/score-engine/main/compositions/once.wav) |
+| Virtual Insanity · Jamiroquai | 4:00 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/docs/audio/virtual.mp3) | [TXT](examples/virtual.txt) | [WAV](https://raw.githubusercontent.com/artembatalov/score-engine/main/compositions/virtual.wav) |
+| Blue Hour · synth demo | 0:19 | [MP3](https://raw.githubusercontent.com/artembatalov/score-engine/main/examples/blue-hour.mp3) | [TXT](examples/blue-hour.txt) | [Render locally](#build-and-render) |
 
 The MP3s for the sample-based arrangements were encoded from the WAV renders in `compositions/`. To render those scores again, place their referenced WAV samples under `samples/` at the repository root.
 
@@ -35,10 +38,10 @@ Requires CMake 3.24+ and a C++20 compiler. CMake downloads GoogleTest during con
 ```sh
 cmake -S . -B build
 cmake --build build --target score-engine
-./build/bin/score-engine examples/blue-hour.txt blue-hour.wav
+./build/bin/score-engine examples/neon-signal.txt neon-signal.wav
 ```
 
-Blue Hour uses built-in oscillators, so it runs without external samples.
+Neon Signal and Blue Hour both run without external samples.
 
 ## Score format
 

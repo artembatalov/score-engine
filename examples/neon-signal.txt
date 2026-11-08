@@ -1,0 +1,169 @@
+# Neon Signal | original electropop demo | 124 BPM
+bpm 124
+
+instrument kick sine
+  attack=70 release=2200
+end
+instrument bass triangle
+  attack=120 release=1000
+end
+instrument chords square
+  attack=220 release=1600 duty=25
+  effect tremolo freq=8.27 depth=0.17
+end
+instrument lead triangle
+  attack=130 release=1300
+  effect echo delay=0.363 decay=0.23
+end
+instrument sparkle sine
+  attack=40 release=1200
+end
+
+pattern beat resolution 4
+   0 kick     A1    2 33
+   2 sparkle  F#7 0.25 5
+   4 kick     A1    2 33
+   6 sparkle  F#7 0.25 5
+   8 kick     A1    2 33
+  10 sparkle  F#7 0.25 5
+  12 kick     A1    2 33
+  14 sparkle  F#7 0.25 5
+end
+
+pattern harmony0 resolution 4
+   0 chords   A3    3 5
+   0 chords   C#4   3 5
+   0 chords   F#4   3 5
+   2 bass     F#2   2 22
+   6 bass     F#2   2 18
+   7 chords   A3    2 6
+   7 chords   C#4   2 6
+   7 chords   F#4   2 6
+  10 bass     F#2   2 21
+  12 chords   A3    3 5
+  12 chords   C#4   3 5
+  12 chords   F#4   3 5
+  14 bass     F#2   2 19
+end
+
+pattern hook0 resolution 4
+   0 lead     C#5   3 29
+   3 lead     F#5   2 21
+   6 lead     A5    3 27
+  10 lead     G#5   2 23
+  12 lead     E5    4 25
+end
+
+pattern harmony1 resolution 4
+   0 chords   A3    3 5
+   0 chords   D4    3 5
+   0 chords   F#4   3 5
+   2 bass     D2    2 22
+   6 bass     D2    2 18
+   7 chords   A3    2 6
+   7 chords   D4    2 6
+   7 chords   F#4   2 6
+  10 bass     D2    2 21
+  12 chords   A3    3 5
+  12 chords   D4    3 5
+  12 chords   F#4   3 5
+  14 bass     D2    2 19
+end
+
+pattern hook1 resolution 4
+   0 lead     F#5   3 29
+   3 lead     E5    2 21
+   6 lead     D5    3 27
+  10 lead     F#5   2 23
+  12 lead     A5    4 25
+end
+
+pattern harmony2 resolution 4
+   0 chords   A3    3 5
+   0 chords   C#4   3 5
+   0 chords   E4    3 5
+   2 bass     A2    2 22
+   6 bass     A2    2 18
+   7 chords   A3    2 6
+   7 chords   C#4   2 6
+   7 chords   E4    2 6
+  10 bass     A2    2 21
+  12 chords   A3    3 5
+  12 chords   C#4   3 5
+  12 chords   E4    3 5
+  14 bass     A2    2 19
+end
+
+pattern hook2 resolution 4
+   0 lead     B5    3 29
+   3 lead     A5    2 21
+   6 lead     E5    3 27
+  10 lead     C#5   2 23
+  12 lead     E5    4 25
+end
+
+pattern harmony3 resolution 4
+   0 chords   B3    3 5
+   0 chords   E4    3 5
+   0 chords   G#3   3 5
+   2 bass     E2    2 22
+   6 bass     E2    2 18
+   7 chords   B3    2 6
+   7 chords   E4    2 6
+   7 chords   G#3   2 6
+  10 bass     E2    2 21
+  12 chords   B3    3 5
+  12 chords   E4    3 5
+  12 chords   G#3   3 5
+  14 bass     E2    2 19
+end
+
+pattern hook3 resolution 4
+   0 lead     G#5   3 29
+   3 lead     F#5   2 21
+   6 lead     E5    3 27
+  10 lead     B4    2 23
+  12 lead     C#5   4 25
+end
+
+pattern outro resolution 4
+   0 bass     F#2  10 25
+   0 chords   F#4  12 8
+   0 kick     A1    2 35
+   0 lead     F#5   8 24
+   0 sparkle  A1   24 0
+end
+
+pattern main resolution 4
+    0 @harmony0
+   16 @harmony1
+   32 @harmony2
+   32 @beat
+   48 @harmony3
+   48 @beat
+   64 @harmony0
+   64 @beat
+   64 @hook0
+   80 @harmony1
+   80 @beat
+   80 @hook1
+   96 @harmony2
+   96 @beat
+   96 @hook2
+  112 @harmony3
+  112 @beat
+  112 @hook3
+  128 @harmony0
+  128 @beat
+  128 @hook0
+  144 @harmony1
+  144 @beat
+  144 @hook1
+  160 @harmony2
+  160 @beat
+  160 @hook2
+  176 @harmony3
+  176 @beat
+  176 @hook3
+  192 @outro
+end
